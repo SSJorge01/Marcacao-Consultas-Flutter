@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/status_consulta.dart';
 import 'app_colors.dart';
 
@@ -25,7 +24,7 @@ class ConsultaCardStyles {
 
   static const TextStyle info = TextStyle(
     fontSize: 14,
-    color: AppColors.textoSecundario,   
+    color: AppColors.textoSecundario,
   );
 
   static const TextStyle observacoes = TextStyle(
@@ -46,12 +45,17 @@ class ConsultaCardStyles {
     fontSize: 14,
   );
 
+  static const TextStyle botaoDetalhesTexto = TextStyle(
+    color: AppColors.primaria,
+    fontWeight: FontWeight.bold,
+    fontSize: 14,
+  );
+
   static BoxDecoration get card => BoxDecoration(
     color: AppColors.branco,
     borderRadius: BorderRadius.circular(16),
     boxShadow: const [
-      BoxShadow(color: Color(0x33000000), 
-      blurRadius: 8, offset: Offset(0, 4)),
+      BoxShadow(color: Color(0x33000000), blurRadius: 8, offset: Offset(0, 4)),
     ],
   );
 

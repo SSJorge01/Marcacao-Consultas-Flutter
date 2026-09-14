@@ -10,7 +10,6 @@ class Consulta {
   final double valor;
   final StatusConsulta status;
   final String? observacoes;
-
   const Consulta({
     required this.id,
     required this.medico,
@@ -39,5 +38,29 @@ class Consulta {
       status: status ?? this.status,
       observacoes: observacoes ?? this.observacoes,
     );
+  }
+
+  factory Consulta.fromJson(Map<String, dynamic> json) {
+    return Consulta(
+      id: json['id'] as int,
+      medico: Medico.fromJson(json['medico'] as Map<String, dynamic>),
+      paciente: Paciente.fromJson(json['paciente'] as Map<String, dynamic>),
+      data: DateTime.parse(json['data'] as String),
+      valor: (json['valor'] as num).toDouble(),
+      status: StatusConsulta.values.byName(json['status'] as String),
+      observacoes: json['observacoes'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'medico': medico.toJson(),
+      'paciente': paciente.toJson(),
+      'data': data.toIso8601String(),
+      'valor': valor,
+      'status': status.name,
+      'observacoes': observacoes,
+    };
   }
 }
